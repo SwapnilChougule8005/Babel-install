@@ -1,7 +1,14 @@
-// import yup from 'yup';
+import http from 'http';
 
-// console.log("swapnil");
+const PORT = 3000;
 
-import  sayHello  from './hello.js';
+const server = http.createServer((req, res) => {
+    res.writeHead(200, {'Content-type': 'application/json'});
+    res.end(JSON.stringify({
+        data: "hello swapnil",
+    }))
+});
 
-sayHello('Swapnil');
+server.listen(PORT, () => {
+    console.log(`server is listening on http://localhost:${PORT}/`);
+});
